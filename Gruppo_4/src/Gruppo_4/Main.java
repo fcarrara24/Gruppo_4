@@ -22,7 +22,7 @@ public class Main {
 			g[i] = new Giocatore(nickname, numeroGiocatori);
 		}
 		
-		System.out.println("PARTECIPANTI");
+		System.out.println("ELENCO PARTECIPANTI:");
 		for(int q=0;q<numeroGiocatori;q++) {
 			System.out.println(g[q].toString());
 		}
