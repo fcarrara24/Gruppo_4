@@ -35,3 +35,4 @@ public class Giocatore {
 	
 	
 }
+// per ora lìoperazione è tutto ok
