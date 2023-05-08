@@ -4,18 +4,17 @@ public class ObiettivoComune {
 
 boolean ObiettivoComune1(Integer[][] libreria) {
 		int contatore=0;
-		for(int i=0; i<4; i++) {
-			for(int j=0; j<5; j++) {
+		for(int i=0; i<5; i++) { //i riga, che faccio scorrere
+			for(int j=0; j<4; j++) { //j colonna, che faccio scorrere
 				if(libreria[i][j]==libreria[i][j+1]&&libreria[i][j]==libreria[i+1][j]&&libreria[i][j]==libreria[i+1][j+1]) {
-					contatore++;
+					contatore++; //serve a controllare quante volte la condizione dell'if è vera 
 				}
 			}
 		}
-		if(contatore>=2) {
+		if(contatore>=2) { // vedere quante volte è presente la condizione dell'obiettivo
 			return true;
 		}
 		else {
 			return false;
 		}
 	}
-}
