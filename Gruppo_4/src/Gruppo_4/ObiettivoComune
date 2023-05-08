@@ -60,7 +60,16 @@ public class ObiettivoComune {
 		}
 	}
 	
-	
+	boolean ObiettivoComune8(Integer[][] libreria) {
+
+		if(libreria[0][0]==libreria[0][4]&&libreria[0][0]==libreria[5][0]&&libreria[0][0]==libreria[5][4]) {
+			return true;                                           //vedo sela condizione dell'if e quindi l'obiettivo sia vera
+		}
+		else {
+			return false;
+		}
+	}
+
 	
 	
 	
