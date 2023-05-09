@@ -96,15 +96,44 @@ public class ObiettivoComune {
 
 	boolean ObiettivoComune10(Integer[][] libreria) {
 		int contatore=0;
-		for(int i=0; i<3; i++) { 									//i riga, che faccio scorrere
-			for(int j=0; j<2; j++) { 								//j colonna, che faccio scorrere
+		for(int i=0; i<3; i++) { 					//i riga, che faccio scorrere
+			for(int j=0; j<2; j++) { 				//j colonna, che faccio scorrere
 				if(libreria[i][j]==libreria[i][j+2]&&libreria[i][j]==libreria[i+2][j]&&
 						libreria[i][j]==libreria[i+1][j+1]&&libreria[i][j]==libreria[i+2][j+2]) {
-					contatore++;  									//serve a controllare quante volte la condizione dell'if è vera 
+					contatore++;  				//serve a controllare quante volte la condizione dell'if è vera 
 				}
 			}
 		}
-		if(contatore>=1) { 											// vedere quante volte è presente la condizione dell'obiettivo
+		if(contatore>=1) { 						// vedere quante volte è presente la condizione dell'obiettivo
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	boolean ObiettivoComune11(Integer[][] libreria) {
+		int contatore=0;
+		int i = 0; 							//j colonna, che faccio scorrere
+		int j = 0;		
+
+										//vari casi dell'obiettivo numero 11
+
+		if(libreria[i][j]==libreria[i+1][j+1]&&libreria[i][j]==libreria[i+2][j+2]&&
+				libreria[i][j]==libreria[i+3][j+3]&&libreria[i][j]==libreria[i+4][j+4]) {
+			contatore++;  						//serve a controllare quante volte la condizione dell'if è vera 
+		}else if(libreria[i+1][j]==libreria[i+2][j+1]&&libreria[i+1][j]==libreria[i+3][j+2]&&
+				libreria[i+1][j]==libreria[i+4][j+3]&&libreria[i+1][j]==libreria[i+5][j+4]) {
+			contatore++;
+		}else if(libreria[i][j+4]==libreria[i+1][j+3]&&libreria[i][j+4]==libreria[i+2][j+2]&&
+				libreria[i][j+4]==libreria[i+3][j+1]&&libreria[i][j+4]==libreria[i+4][j]) {
+			contatore++;
+		}else if(libreria[i+1][j+4]==libreria[i+2][j+3]&&libreria[i+1][j+4]==libreria[i+3][j+2]&&
+				libreria[i+1][j+4]==libreria[i+4][j+1]&&libreria[i+1][j+4]==libreria[i+5][j]) {
+			contatore++;
+		}
+
+		if(contatore>=1) { 						// vedere quante volte è presente la condizione dell'obiettivo
 			return true;
 		}
 		else {
