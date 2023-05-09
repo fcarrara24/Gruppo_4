@@ -76,7 +76,7 @@ public class ObiettivoComune {
 			}
 		}
 	
-		if(contatore==3) {						//controlli se l'obiettivo è stato raggiunto
+		if(contatore>=3) {						//controlli se l'obiettivo è stato raggiunto
 			return true;
 		}
 		else {
