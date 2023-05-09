@@ -2,6 +2,7 @@ package Gruppo_4;
 
 public class ObiettivoComune {
 
+
 	boolean ObiettivoComune1(Integer[][] libreria) {
 		int contatore=0;
 		for(int i=0; i<4; i++) { 					//i riga, che faccio scorrere
