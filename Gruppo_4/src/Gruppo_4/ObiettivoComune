@@ -22,10 +22,10 @@ public class ObiettivoComune {
 	boolean ObiettivoComune2(Integer[][] libreria) {
 		int contatore=0;						//inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
 		for(int j=0; j<4; j++) {					//facciamo scorrere le colonne
-			for(int numRighe = 0; numRighe<6; numRighe++) {		//facciamo scorrere le righe
+			for(int numColonne = 0; numColonne<4; numColonne++) {	//facciamo scorrere le righe
 				int coloriUguali = 0;							
 				for (int colori=1; colori<=6; colori++) {	//vediamo se ci sono colori uguali
-					if(libreria[numRighe][j]==colori){			
+					if(libreria[numColonne][j]==colori){			
 						coloriUguali++;
 					}
 				}
