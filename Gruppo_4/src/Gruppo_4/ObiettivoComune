@@ -112,11 +112,29 @@ public class ObiettivoComune {
 	boolean ObiettivoComune8(Integer[][] libreria) {
 
 		if(libreria[0][0]==libreria[0][4]&&libreria[0][0]==libreria[5][0]&&libreria[0][0]==libreria[5][4]) {
-			return true;                                           //vedo sela condizione dell'if e quindi l'obiettivo sia vera
+			return true;                                           		//vedo sela condizione dell'if e quindi l'obiettivo sia vera
 		}
 		else {
 			return false;
 		}
+	}
+	
+	boolean ObiettivoComune9(Integer[][] libreria) {
+		for (int colori=1; colori<=6; colori++) {				//vediamo se ci sono colori uguali
+			int coloriUguali = 0;
+			for(int i=0; i<6; i++) { 					//i riga, che faccio scorrere
+				for(int j=0; j<5; j++) { 				//j colonna, che faccio scorrere
+					if(libreria[i][j]==colori){			
+						coloriUguali++;
+					}
+				}
+			}
+			if(coloriUguali==8) { 						//il ciclo finisce quando vengono trovate le 8 le caselle uguali
+				return true;
+			}
+		}
+		return false;
+		
 	}
 
 	boolean ObiettivoComune10(Integer[][] libreria) {
