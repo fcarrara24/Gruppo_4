@@ -1,0 +1,70 @@
+package Gruppo_4;
+
+public class Punti {
+
+	public void azzeraPunti(int punti[], int numeroGiocatori) {
+		for (int i = 0; i < numeroGiocatori; i++) {
+			punti[i] = 0;
+		}
+	}
+
+	
+	
+	public boolean grigliaPersonaleCompleta(int grigliaPersonale[][]) {
+		boolean completa = true;
+		for (int riga = 0; riga < 5; riga++) {
+			for (int colonna = 0; colonna < 4; colonna++) {
+				if (grigliaPersonale[riga][colonna] == 0) {//scorre la griglia personale di tutti
+					completa = false; 			//i giocatori per cercare il primo che la completa
+					break;		//serve un for nel main che scorre i giocatori e trova quando e true
+				}
+			}
+		}
+		return completa;
+	}
+
+	
+	
+	public int obiettivoPersonale(int grigliaPersonale[][], int obiettivoPersonale[][]) {
+		int caselleGiuste = 0;
+		int punti = 0;
+		for (int i = 0; i < 5; i++) {
+			for (int k = 0; k < 4; k++) {
+				if (obiettivoPersonale[i][k] == grigliaPersonale[i][k] && obiettivoPersonale[i][k] != 0) {
+					caselleGiuste++;
+				}
+			}
+		}
+		switch (caselleGiuste) {
+		case 0:
+			punti = 0;
+			break;
+		case 1:
+			punti = 1;
+			break;
+		case 2:
+			punti = 2;
+			break;
+		case 3:
+			punti = 4;
+			break;
+		case 4:
+			punti = 6;
+			break;
+		case 5:
+			punti = 9;
+			break;
+		case 6:
+			punti = 12;
+			break;
+		default:
+			break;
+		}
+		return punti; // nel main si fa il ciclo per tutti i giocatori
+	}
+	
+	
+	
+	
+	
+}
