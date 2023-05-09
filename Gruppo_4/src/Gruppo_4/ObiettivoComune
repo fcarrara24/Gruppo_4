@@ -60,6 +60,30 @@ public class ObiettivoComune {
 		}
 	}
 	
+	boolean ObiettivoComune5(Integer[][] libreria) {
+		int contatore=0;
+		int i=0;
+		for(int j=0; j<5; j++) { 
+			if (libreria[i][j]==libreria[i+1][j]&&libreria[i][j]==libreria[i+2][j]&&libreria[i][j]==libreria[i+3][j]&&libreria[i][j]==libreria[i+4][j]&&libreria[i][j]==libreria[i+5][j]) {
+				contatore++;
+			}
+			else if() {
+				contatore++;
+			}
+			else if() {
+				contatore++;
+			}
+		}
+	
+		if(contatore==3) {						//controlli se l'obiettivo è stato raggiunto
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+	
 	boolean ObiettivoComune6(Integer[][] libreria) {
 		int contatore=0;						//inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
 		for(int i=0; i<5; i++) {					//facciamo scorrere le colonne
