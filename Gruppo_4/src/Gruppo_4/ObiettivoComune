@@ -117,6 +117,36 @@ public class ObiettivoComune {
 		}
 	}
 	
+	boolean ObiettivoComune7(Integer[][] libreria) {
+		int contaRighe=0;
+		for(int i=0; i<6; i++) { 					//scorro le righe
+			int contaColori=0;
+			if(libreria[i][0]!=0&&libreria[i][1]!=0&&libreria[i][2]!=0&&libreria[i][3]!=0&&libreria[i][4]!=0) { //vedo se la riga è piena
+				for (int colori=1; colori<=6; colori++) { 	//vediamo se ci sono colori uguali
+					boolean colorePresente=false;
+					for(int j=0; j<5; j++) { 		//scorro le colonne
+						if(libreria[i][j]==colori) {
+							colorePresente=true;
+						}
+					}
+					if(colorePresente==true) {
+						contaColori++; 			//conta quanti colori sono presenti in una riga
+					}
+				}
+				if(contaColori<=3) {
+					contaRighe++; 				//conta quante righe rispettano la condizione dell'obiettivo
+				}
+			}
+		}
+
+		if(contaRighe>=4) {						//controlli se l'obiettivo è stato raggiunto
+			return true;
+		}
+		else {
+			return false;
+		}
+	} 
+	
 	boolean ObiettivoComune8(Integer[][] libreria) {
 
 		if(libreria[0][0]==libreria[0][4]&&libreria[0][0]==libreria[5][0]&&libreria[0][0]==libreria[5][4]) {
