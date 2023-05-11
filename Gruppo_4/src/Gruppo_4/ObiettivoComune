@@ -62,28 +62,37 @@ public class ObiettivoComune {
 	}
 	
 	boolean ObiettivoComune5(Integer[][] libreria) {
-		int contatore=0;
-		int i=0;
-		for(int j=0; j<5; j++) { 
-			if (libreria[i][j]==libreria[i+1][j]&&libreria[i][j]==libreria[i+2][j]&&libreria[i][j]==libreria[i+3][j]&&libreria[i][j]==libreria[i+4][j]&&libreria[i][j]==libreria[i+5][j]) {
-				contatore++;
+		int contaColonne=0;
+		for(int j=0; j<5; j++) { 					//scorro le colonne
+			int contaColori=0;
+			if(libreria[0][j]!=0) { 				//vedo se la colonna è piena
+				for (int colori=1; colori<=6; colori++) { 	//vediamo se ci sono colori uguali
+					for(int i=0; i<6; i++) { 		//scorro le righe
+						boolean colorePresente=false;
+						for(int i=0; i<6; i++) {
+							if(libreria[i][j]==colori) {
+								colorePresente=true;
+							}
+						}
+						if(colorePresente==true) {
+							contaColori++; 		//conta quanti colori sono presenti in una colonna
+						}
+					}
+				}
 			}
-			else if() {
-				contatore++;
-			}
-			else if() {
-				contatore++;
+			if(contaColori<=3) {
+				contaColonne++; 				//conta quante colonne rispettano la condizione dell'obiettivo
 			}
 		}
-	
-		if(contatore>=3) {						//controlli se l'obiettivo è stato raggiunto
+
+		if(contaColonne>=3) {				             	//controlli se l'obiettivo è stato raggiunto
 			return true;
 		}
 		else {
 			return false;
 		}
-		
-	}
+
+	} 
 	
 	boolean ObiettivoComune6(Integer[][] libreria) {
 		int contatore=0;						//inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
