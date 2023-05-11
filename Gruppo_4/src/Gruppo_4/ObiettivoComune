@@ -78,9 +78,9 @@ public class ObiettivoComune {
 							contaColori++; 		//conta quanti colori sono presenti in una colonna
 						}
 				}
-			}
-			if(contaColori<=3) {
+				if(contaColori<=3) {
 				contaColonne++; 				//conta quante colonne rispettano la condizione dell'obiettivo
+			}
 			}
 		}
 
