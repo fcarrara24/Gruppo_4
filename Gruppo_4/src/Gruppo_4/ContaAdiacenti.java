@@ -2,7 +2,7 @@ package Gruppo_4;
 
 import java.util.ArrayList;
 
-public class contaAdiacenti {
+public class ContaAdiacenti {
 	private int[] [] libreria;
 	private int[] [] vicinanza;
 
