@@ -44,22 +44,60 @@ public class ObiettivoComune {
 		}
 	}
 	
-	public boolean ObiettivoComune3(Integer[][] libreria) {
+	public boolean obiettivo3(Integer[][]libreria){
+		/**
+		 * inserimento dell'obiettivo 3 di conta caselle: 
+		 * ad ogni scansione controlla tutti i casi possibili;
+		 * per ciascuno di questi controlli verifico che tutte
+		 * le caselle adiacenti (escludendo quelle messe in diagonale) siano di colori 
+		 * diversi (i tipi di coordinate sono specificati sotto)
+		 * */
 		int contatore=0;
-		for(int i=0; i<3; i++) {                                        //i riga, che faccio scorrere
-			for(int j=0; j<5; j++) {                                //j colonna, che faccio scorrere
-				if(libreria[i][j]==libreria[i][j+1]&&libreria[i][j]==libreria[i][j+2]&&libreria[i][j]==libreria[i][j+3]) {
-					contatore++;                            //serve a controllare quante volte la condizione dell'if è vera
+		//righe 6
+		//colonne 5
+		for (int i=0; i<6; i++) {			//scorrimento righe
+			for (int j=0; j<5; j++) { 		//scorrimento colonne
+				if(neiConfini(i,j+1)&libreria[i][j]==libreria[i][j+1] & neiConfini(i,j+2)&libreria[i][j]==libreria[i][j+2] & neiConfini(i,j+3)&libreria[i][j]==libreria[i][j+3]) { 	//controllo a lato se c'è lo stesso colore
+
+					//controllo che i lati adiacenti ai gruppi da 4 (orizzontali) siano diversi dal colore trovato
+					if((!neiConfini(i, j+4)|libreria[i][j]!=libreria[i][j+4])  &&			//controllo destra
+							(!neiConfini( i, j-1)|libreria[i][j]!=libreria[i][j-1])  &&		//controllo sinistra
+							(!neiConfini(i+1,j)|libreria[i][j]!=libreria[i+1][j])&&		    //controllo elemento sotto primo
+							(!neiConfini(i+1,j+1)|libreria[i][j]!=libreria[i+1][j+1])&&		//controllo elemento sotto secondo
+							(!neiConfini(i+1,j+2)|libreria[i][j]!=libreria[i+1][j+2])&&		//controllo elemento sotto terzo
+							(!neiConfini(i+1,j+3)|libreria[i][j]!=libreria[i+1][j+3])&&		//controllo elemento sotto quarto
+							(!neiConfini(i-1, j) |libreria[i][j]!=libreria[i-1 ][j])&&		//controllo elemento sopra primo
+							(!neiConfini(i-1, j+1) |libreria[i][j]!=libreria[i-1][j+1])&&	//controllo elemento sopra secondo
+							(!neiConfini(i-1, j+2) |libreria[i][j]!=libreria[i-1 ][j+2])&&		//controllo elemento sopra terzo
+							(!neiConfini(i-1, j+3) |libreria[i][j]!=libreria[i-1][j+3])){		//controllo elemento sopra quarto
+							contatore++;
+						}
+
+					}
+					else if(neiConfini(i+1, j)&libreria[i][j]==libreria[i+1][j] & neiConfini(i+2, j)&libreria[i][j]==libreria[i+2][j] & neiConfini(i+3, j)&libreria[i][j]==libreria[i+3][j] ) { //controllo se c'è sotto lo stesso colore
+
+						//controllo che i lati adiacenti ai gruppi da 4 (verticali) siano diversi dal colore trovato
+						if((!neiConfini( i-1, j)|libreria[i][j]!=libreria[i-1][j]) && 			//sopra 
+								(!neiConfini( i+4, j)|libreria[i][j]!=libreria[i+4][j]) && 		//sotto 
+								(!neiConfini( i, j+1)|libreria[i][j]!=libreria[i][j+1]) && 		//destra primo
+								(!neiConfini( i+1, j+1)|libreria[i][j]!=libreria[i+1][j+1]) && 	//destra secondo
+								(!neiConfini( i+2, j+1)|libreria[i][j]!=libreria[i+2][j+1]) && 	//destra terzo
+								(!neiConfini( i+3, j+1)|libreria[i][j]!=libreria[i+3][j+1]) && 	//destra quarto
+								(!neiConfini( i, j-1)|libreria[i][j]!=libreria[i][j-1]) &&      //sinistra primo
+								(!neiConfini( i+1, j-1)|libreria[i][j]!=libreria[i+1][j-1]) &&  //sinistra secondo
+								(!neiConfini( i+2, j-1)|libreria[i][j]!=libreria[i+2][j-1]) &&  //sinistra terzo
+								(!neiConfini( i+3, j-1)|libreria[i][j]!=libreria[i+3][j-1])){   //sinistra quarto		
+							contatore++;
+								}
+					}
 				}
 			}
-		}
-		if(contatore>=4) {                                              // vedere quante volte è presente la condizione dell'obiettivo
-			return true;
-		}
-		else {
+			if(contatore>=4) {
+				return true;
+			}
 			return false;
 		}
-	}
+
 	
 	public boolean obiettivo4(Integer[][]libreria){
 		/**
