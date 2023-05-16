@@ -3,7 +3,7 @@ package Gruppo_4;
 public class ObiettivoComune {
 
 
-	boolean ObiettivoComune1(Integer[][] libreria) {
+	public boolean ObiettivoComune1(Integer[][] libreria) {
 		int contatore=0;
 		for(int i=0; i<4; i++) { 					//i riga, che faccio scorrere
 			for(int j=0; j<3; j++) { 				//j colonna, che faccio scorrere
@@ -20,7 +20,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune2(Integer[][] libreria) {
+	public boolean ObiettivoComune2(Integer[][] libreria) {
 		int contatore=0;						//inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
 		for(int j=0; j<4; j++) {					//facciamo scorrere le colonne
 			for(int numColonne = 0; numColonne<4; numColonne++) {	//facciamo scorrere le righe
@@ -44,7 +44,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune3(Integer[][] libreria) {
+	public boolean ObiettivoComune3(Integer[][] libreria) {
 		int contatore=0;
 		for(int i=0; i<3; i++) {                                        //i riga, che faccio scorrere
 			for(int j=0; j<5; j++) {                                //j colonna, che faccio scorrere
@@ -61,7 +61,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune5(Integer[][] libreria) {
+	public boolean ObiettivoComune5(Integer[][] libreria) {
 		int contaColonne=0;
 
 		for(int j=0; j<5; j++) { 					//scorro le colonne
@@ -93,7 +93,7 @@ public class ObiettivoComune {
 
 	} 
 	
-	boolean ObiettivoComune6(Integer[][] libreria) {
+	public boolean ObiettivoComune6(Integer[][] libreria) {
 		int contatore=0;						//inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
 		for(int i=0; i<5; i++) {					//facciamo scorrere le colonne
 			for(int numRighe = 0; numRighe<6; numRighe++) {		//facciamo scorrere le righe
@@ -117,7 +117,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune7(Integer[][] libreria) {
+	public boolean ObiettivoComune7(Integer[][] libreria) {
 		int contaRighe=0;
 		for(int i=0; i<6; i++) { 					//scorro le righe
 			int contaColori=0;
@@ -147,7 +147,7 @@ public class ObiettivoComune {
 		}
 	} 
 	
-	boolean ObiettivoComune8(Integer[][] libreria) {
+	public boolean ObiettivoComune8(Integer[][] libreria) {
 
 		if(libreria[0][0]==libreria[0][4]&&libreria[0][0]==libreria[5][0]&&libreria[0][0]==libreria[5][4]) {
 			return true;                                           		//vedo sela condizione dell'if e quindi l'obiettivo sia vera
@@ -157,7 +157,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune9(Integer[][] libreria) {
+	public boolean ObiettivoComune9(Integer[][] libreria) {
 		for (int colori=1; colori<=6; colori++) {				//vediamo se ci sono colori uguali
 			int coloriUguali = 0;
 			for(int i=0; i<6; i++) { 					//i riga, che faccio scorrere
@@ -175,7 +175,7 @@ public class ObiettivoComune {
 		
 	}
 
-	boolean ObiettivoComune10(Integer[][] libreria) {
+	public boolean ObiettivoComune10(Integer[][] libreria) {
 		int contatore=0;
 		for(int i=0; i<3; i++) { 					//i riga, che faccio scorrere
 			for(int j=0; j<2; j++) { 				//j colonna, che faccio scorrere
@@ -193,7 +193,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune11(Integer[][] libreria) {
+	public boolean ObiettivoComune11(Integer[][] libreria) {
 		int contatore=0;
 		int i = 0; 							//j colonna, che faccio scorrere
 		int j = 0;		
@@ -222,7 +222,7 @@ public class ObiettivoComune {
 		}
 	}
 	
-	boolean ObiettivoComune12(Integer[][] libreria) {
+	public boolean ObiettivoComune12(Integer[][] libreria) {
 		int contatore=0;
 
 		if(libreria[1][0]!=0&&libreria[1][0]==libreria[2][1]&&libreria[1][0]==libreria[3][2]&&libreria[1][0]==libreria[4][3]&&libreria[1][0]==libreria[5][4]) { //controllo che le caselle siano piene
