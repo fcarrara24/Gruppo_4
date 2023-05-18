@@ -1,9 +1,9 @@
 import java.util.Random;
 
 
-public class ObiettivoPersonale { //va chiamato per ogni giocatore
+public class ObiettivoPersonale { 
 
-	public static int[][] generaMatriceZeri() {
+	public static int[][] generaObiettivoPersonale() {	//va chiamato per ogni giocatore
 		int[][] obiettivoPersonale = new int[5][6];
 		 
 		for (int i = 0; i < 5; i++) {	//crea una matrice 6*5 di zeri
