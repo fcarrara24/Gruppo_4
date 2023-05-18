@@ -16,7 +16,7 @@ public class ObiettivoPersonale {
 	        int cont=1; //identificativo della tessera
 	        while(cont<7) {
 	        	Random rand = new Random();
-	        	int riga = rand.nextInt(7);
+	        	int riga = rand.nextInt(5);
 	        	int colonna = rand.nextInt(6);
 	        	
 	        	while(obiettivoPersonale[riga][colonna]==0) {
@@ -27,4 +27,18 @@ public class ObiettivoPersonale {
 	        
 		return obiettivoPersonale;
 	}
+}
+
+//parte che andra messa nel main che mostra al giocatore il suo obiettivo personale (da associare al giocatore)
+public class MainProva {
+    public static void main(String[] args) {
+        int[][] obiettivoPersonale = ObiettivoPersonale.generaObiettivoPersonale();
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 6; j++) {
+                System.out.print(obiettivoPersonale[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
