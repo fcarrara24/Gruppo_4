@@ -22,6 +22,7 @@ public class Main {
 		
 		ArrayList<Integer> obiettivoPersonaleLista= new ArrayList<Integer>();
 		ObiettivoComune obiettivoComune=new ObiettivoComune();
+		System.out.println("obiettivo comune numero "+obiettivoComune.numeroObiettivo);
 		for (int i=1; i<=12; i++) {
 			obiettivoPersonaleLista.add(i);
 		}

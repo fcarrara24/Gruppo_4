@@ -43,11 +43,7 @@ public class LoopCycle {
 		
 		int colonnaLibreria=this.giocatoreAttuale.shelf.selezioneColonna();
 		int maxColonne=this.giocatoreAttuale.shelf.getMax(colonnaLibreria);
-		System.out.println("potrai pescare al massimo "+maxColonne+" elementi");//////////////////////////////////////
-	
-		//int[] cordianteIniziali=this.tavolo.getStarterCoordinates();
-		//int[] coordinateFinali=this.tavolo.getEndingCoordinates(cordianteIniziali, maxColonne);
-		//ArrayList<Integer> mano=this.tavolo.extractTiles(this.tavolo.grid, cordianteIniziali[0], cordianteIniziali[1], coordinateFinali[0], coordinateFinali[1], maxColonne, true);
+		System.out.println("potrai pescare al massimo "+maxColonne+" elementi");
 		ArrayList<Integer> mano=this.tavolo.getColors(maxColonne);
 		ArrayList<Integer> elementiOrdinati=this.giocatoreAttuale.shelf.chooseOrder(mano);
 		for(int i=0; i<elementiOrdinati.size(); i++) {
@@ -70,23 +66,6 @@ public class LoopCycle {
 			return false;		
 		}
 		
-		/**
-		 *per ora sei arrivato a pescare le coordinate iniziali, e finali, 
-		 *devi ancora togliere i tasselli correttamente; 
-		 *selezionare l'ordine da metterenella griglia
-		 *metterli effettivamente
-		 * attivare i controlli (obiettivi comuni)
-		 * controllare shelf piena
-		 */
-		
-		/**
-		 * scegliere obiettivo comune
-		 * ******************************************************************
-		 * controllare obiettivi personali
-		 * sistema di conversione in punti
-		 * stampa obiettivo
-		 * universitario che ha finito il lavoro :-)
-		 */
 		
 		this.turno++;
 		return true;

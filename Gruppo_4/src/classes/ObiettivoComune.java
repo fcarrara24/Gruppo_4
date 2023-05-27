@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ObiettivoComune {
@@ -68,7 +69,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 3
 	 * 
 	 * Quattro gruppi separati formati ciascuno da quattro tessere adiacenti dello
@@ -85,63 +86,15 @@ public class ObiettivoComune {
 		int contatore = 0;
 		// righe 6
 		// colonne 5
-		for (int i = 0; i < 6; i++) { // scorrimento righe
-			for (int j = 0; j < 5; j++) { // scorrimento colonne
-				if (neiConfini(i, j + 1) & libreria[i][j] == libreria[i][j + 1] & neiConfini(i, j + 2)
-						& libreria[i][j] == libreria[i][j + 2] & neiConfini(i, j + 3)
-						& libreria[i][j] == libreria[i][j + 3]) { // controllo a lato se c'è lo stesso colore
-
-					// controllo che i lati adiacenti ai gruppi da 4 (orizzontali) siano diversi dal
-					// colore trovato
-					if ((!neiConfini(i, j + 4) | libreria[i][j] != libreria[i][j + 4]) && // controllo destra
-							(!neiConfini(i, j - 1) | libreria[i][j] != libreria[i][j - 1]) && // controllo sinistra
-							(!neiConfini(i + 1, j) | libreria[i][j] != libreria[i + 1][j]) && // controllo elemento
-																								// sotto primo
-							(!neiConfini(i + 1, j + 1) | libreria[i][j] != libreria[i + 1][j + 1]) && // controllo
-																										// elemento
-																										// sotto secondo
-							(!neiConfini(i + 1, j + 2) | libreria[i][j] != libreria[i + 1][j + 2]) && // controllo
-																										// elemento
-																										// sotto terzo
-							(!neiConfini(i + 1, j + 3) | libreria[i][j] != libreria[i + 1][j + 3]) && // controllo
-																										// elemento
-																										// sotto quarto
-							(!neiConfini(i - 1, j) | libreria[i][j] != libreria[i - 1][j]) && // controllo elemento
-																								// sopra primo
-							(!neiConfini(i - 1, j + 1) | libreria[i][j] != libreria[i - 1][j + 1]) && // controllo
-																										// elemento
-																										// sopra secondo
-							(!neiConfini(i - 1, j + 2) | libreria[i][j] != libreria[i - 1][j + 2]) && // controllo
-																										// elemento
-																										// sopra terzo
-							(!neiConfini(i - 1, j + 3) | libreria[i][j] != libreria[i - 1][j + 3])) { // controllo
-																										// elemento
-																										// sopra quarto
-						contatore++;
-					}
-
-				} else if (neiConfini(i + 1, j) & libreria[i][j] == libreria[i + 1][j] & neiConfini(i + 2, j)
-						& libreria[i][j] == libreria[i + 2][j] & neiConfini(i + 3, j)
-						& libreria[i][j] == libreria[i + 3][j]) { // controllo se c'è sotto lo stesso colore
-
-					// controllo che i lati adiacenti ai gruppi da 4 (verticali) siano diversi dal
-					// colore trovato
-					if ((!neiConfini(i - 1, j) | libreria[i][j] != libreria[i - 1][j]) && // sopra
-							(!neiConfini(i + 4, j) | libreria[i][j] != libreria[i + 4][j]) && // sotto
-							(!neiConfini(i, j + 1) | libreria[i][j] != libreria[i][j + 1]) && // destra primo
-							(!neiConfini(i + 1, j + 1) | libreria[i][j] != libreria[i + 1][j + 1]) && // destra secondo
-							(!neiConfini(i + 2, j + 1) | libreria[i][j] != libreria[i + 2][j + 1]) && // destra terzo
-							(!neiConfini(i + 3, j + 1) | libreria[i][j] != libreria[i + 3][j + 1]) && // destra quarto
-							(!neiConfini(i, j - 1) | libreria[i][j] != libreria[i][j - 1]) && // sinistra primo
-							(!neiConfini(i + 1, j - 1) | libreria[i][j] != libreria[i + 1][j - 1]) && // sinistra
-																										// secondo
-							(!neiConfini(i + 2, j - 1) | libreria[i][j] != libreria[i + 2][j - 1]) && // sinistra terzo
-							(!neiConfini(i + 3, j - 1) | libreria[i][j] != libreria[i + 3][j - 1])) { // sinistra quarto
-						contatore++;
-					}
-				}
+		
+		ricercaTilesAdiacenti ricerca =new ricercaTilesAdiacenti();
+		ArrayList<Integer> gruppi= (ArrayList<Integer>) ricerca.listaElementiAdiacenti(libreria);
+		for(int i=0; i<gruppi.size(); i++) {
+			if(gruppi.get(i)==4) {
+				contatore++;
 			}
 		}
+		
 		if (contatore >= 4) {
 			return true;
 		}
