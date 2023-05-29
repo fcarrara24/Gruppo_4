@@ -3,50 +3,49 @@ package classes;
 import java.util.ArrayList;
 
 public class OrdineObComune {
-	public ArrayList<Integer> numeroGiocatore=new ArrayList<Integer>();;
 	public int numeroTotaleGiocatori;
-	
+	public int ordineCompletamento;
 	
 	public OrdineObComune(int numeroTotaleGiocatori){
 		this.numeroTotaleGiocatori=numeroTotaleGiocatori;
-		//ArrayList<Integer> numeroGiocatore;
+		this.ordineCompletamento=0;
 	}
 	
-	public int punteggioCorrispondente(int IDgiocatore){
+	public int punteggioCorrispondente(){
 		switch(numeroTotaleGiocatori){
 		case 2:
-			if(numeroGiocatore.isEmpty()) {
-				this.numeroGiocatore.add(IDgiocatore);
+			if(ordineCompletamento==0) {
+				ordineCompletamento++;
 				return 8;
-			} else if(numeroGiocatore.size()==1) {
-				this.numeroGiocatore.add(IDgiocatore);
+			} else if(ordineCompletamento==1) {
+				ordineCompletamento++;
 				return 4;
 			}
 			
 		case 3:
-			if(numeroGiocatore.isEmpty()) {
-				this.numeroGiocatore.add(IDgiocatore);
+			if(ordineCompletamento==0) {
+				ordineCompletamento++;
 				return 8;
-			} else if(numeroGiocatore.size()==1) {
-				this.numeroGiocatore.add(IDgiocatore);
+			} else if(ordineCompletamento==1) {
+				ordineCompletamento++;
 				return 6;
-			} else if(numeroGiocatore.size()==2) {
-				this.numeroGiocatore.add(IDgiocatore);
+			} else if(ordineCompletamento==2) {
+				ordineCompletamento++;
 				return 4;
 			}
 		
 		case 4:
-			if(numeroGiocatore.isEmpty()) {
-				this.numeroGiocatore.add(IDgiocatore);
+			if(ordineCompletamento==0) {
+				ordineCompletamento++;
 				return 8;
-			} else if(numeroGiocatore.size()==1) {
-				this.numeroGiocatore.add(IDgiocatore);
+			} else if(ordineCompletamento==1) {
+				ordineCompletamento++;
 				return 6;
-			} else if(numeroGiocatore.size()==2) {
-				this.numeroGiocatore.add(IDgiocatore);
+			} else if(ordineCompletamento==2) {
+				ordineCompletamento++;
 				return 4;
-			}  else if(numeroGiocatore.size()==3) {
-				this.numeroGiocatore.add(IDgiocatore);
+			} else if(ordineCompletamento==3) {
+				ordineCompletamento++;
 				return 2;
 			}
 			

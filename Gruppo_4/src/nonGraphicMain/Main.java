@@ -19,28 +19,40 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		int numeroGiocatori=0;
-		
+		boolean eccezione=false;
 		Regolamento regole= new Regolamento();
 		regole.scegliRegola();
 		
 		ArrayList<Integer> obiettivoPersonaleLista= new ArrayList<Integer>();
 		ObiettivoComune obiettivoComune=new ObiettivoComune();
-		System.out.println("obiettivo comune numero "+obiettivoComune.numeroObiettivo);
+		System.out.println("obiettivo comune numero "+obiettivoComune.numeroObiettivo+"\n");
 		for (int i=1; i<=12; i++) {
 			obiettivoPersonaleLista.add(i);
 		}
 		Scanner sc= new Scanner(System.in);
+		
 		do {
-			System.out.println("seleziona numero giocatori (da 2 a 4) ");	
-			numeroGiocatori=sc.nextInt();
+			if(eccezione) {
+				sc.nextLine();
+				sc.reset();
+			}
+			System.out.println("seleziona numero giocatori (da 2 a 4) ");
+			eccezione=false;
+			try {
+				numeroGiocatori=sc.nextInt();
+			} catch (Exception e) {
+				System.out.println("scrivere un numero");
+				eccezione=true;
+			} 
 		}
-		 while ((numeroGiocatori!=2 && numeroGiocatori!=3 && numeroGiocatori!=4));
+		 while (eccezione||(numeroGiocatori!=2 && numeroGiocatori!=3 && numeroGiocatori!=4));
 		sc.reset();
 		/**
 		 * creazione giocatori
 		 */
 		ArrayList <Giocatore> arrayGiocatori= new ArrayList <Giocatore>();
 		
+	
 		for (int num=1; num<=numeroGiocatori; num++) {
 			Random rand= new Random();
 			int numeroObiettivo=rand.nextInt(obiettivoPersonaleLista.size());
@@ -48,9 +60,15 @@ public class Main {
 			obiettivoPersonaleLista.remove(numeroObiettivo);
 			arrayGiocatori.add(giocatore);
 			System.out.println(" il giocatore "+giocatore.nome+" ha l'obiettivo personale numero "+giocatore.obiettivoPersonale.numero);
-			System.out.println(" scrivere -true- per vedere il pattern degli obiettivi personali, -false- per saltarlo: ");
+			System.out.println(" scrivere -true- per vedere il pattern degli obiettivi personali: ");
 			sc.reset();
-			boolean visualizza=sc.nextBoolean();
+			boolean visualizza;
+			try {
+				visualizza=sc.nextBoolean();
+			} catch (Exception e) {
+				visualizza=false;
+			}
+			
 			if (visualizza) {
 				regole.listaObPersonali();
 			}
@@ -71,18 +89,18 @@ public class Main {
 		int punteggio_massimo=0;
 		String vincitore = null;
 		
+		System.out.println("\n\n\nil gioco è terminato, ringraziamo i partecipanti, in seguito trovate i punteggi totalizzati da ciascuno\n");
 		for(Giocatore player: arrayGiocatori) {
 			
 			player.puntiGiocatore.punteggio+=ricercaTilesAdiacenti.punti(ricercaTilesAdiacenti.listaElementiAdiacenti(player.shelf.matrix));
 			player.puntiGiocatore.punteggio+=player.puntiGiocatore.puntiObiettivoPersonale(player.obiettivoPersonale.SelectorObiettivoPersonale(player.shelf.matrix));
-			System.out.println("Giocatore"+player.ID+" ("+player.nome+")"
-					+ "hai totalizzato "+player.puntiGiocatore.punteggio+" punti");
+			System.out.println(player.nome+", complimenti, hai totalizzato "+player.puntiGiocatore.punteggio+" punti");
 			if(player.puntiGiocatore.punteggio>=punteggio_massimo) {
 				punteggio_massimo=player.puntiGiocatore.punteggio;
 				vincitore=player.nome;
 			}
 		}
-		System.out.println("\n\n il vincitore è "+vincitore);
+		System.out.println("\n\n il vincitore è "+vincitore+"\t CONGRATULAZIONI!!");
 		
 	}
 

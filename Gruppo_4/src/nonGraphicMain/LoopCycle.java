@@ -34,7 +34,8 @@ public class LoopCycle {
 	boolean Funzione() {
 		Scanner sc=new Scanner(System.in);
 		sc.reset();
-		System.out.println("obiettivo comune numero"+numObComune);
+		System.out.println("obiettivo comune numero"+numObComune+"\n");
+		regolamento.listaObComuni();
 		
 		System.out.println("tavolo: \n");
 		tavolo.printGrid();
@@ -46,8 +47,15 @@ public class LoopCycle {
 		}
 		
 		System.out.println(giocatoreAttuale.nome+", il tuo obiettivo personale è il numero "+giocatoreAttuale.obiettivoPersonale.numero
-						   +"\nscrivere -true- per vedere il regolamento, -false- per saltarlo");
-		boolean scelta=sc.nextBoolean();
+						   +"\nscrivere -true- per vedere il regolamento");
+		
+		boolean scelta;
+		try{
+			scelta=sc.nextBoolean();
+		} catch (Exception e){
+			sc.reset();
+			scelta=false;
+		}
 		if(scelta) {
 			regolamento.listaObPersonali();
 		}
@@ -72,10 +80,10 @@ public class LoopCycle {
 		//stampa della griglia generale
 		this.giocatoreAttuale.shelf.printShelf();
 		
-		
+		//se gli obiettivi
 		if(flagObComuniAttivi && 
 		   this.giocatoreAttuale.puntiGiocatore.obiettivoComuneSvolto(numObComune, this.giocatoreAttuale.shelf.matrix)) {
-			this.giocatoreAttuale.puntiGiocatore.punteggio+=this.ordineObComune.punteggioCorrispondente(this.giocatoreAttuale.ID);
+			this.giocatoreAttuale.puntiGiocatore.punteggio+=this.ordineObComune.punteggioCorrispondente();
 			this.flagObComuniAttivi=false;
 		}
 		

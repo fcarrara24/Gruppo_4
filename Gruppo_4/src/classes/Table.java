@@ -225,19 +225,31 @@ public class Table {
 			sc.reset();
 			System.out.print("inserire coordinate del primo elemento da pescare dalla board:\n X ");
 			// x
-			X1 = sc.nextInt();
+			try {
+				sc.nextLine();
+				sc.reset();
+				X1 = sc.nextInt();
+				
+				
+			} catch (Error e) {
+				X1=0;
+			}
 			X1--;
-			sc.reset();
 			
-
-			// y
-			System.out.print(" Y ");
-			
-			Y1 = sc.nextInt();
+			try {
+				sc.nextLine();
+				sc.reset();
+				// y
+				System.out.print(" Y ");
+				
+				Y1 = sc.nextInt();
+				
+			} catch (Error e) {
+				Y1=0;
+			}
 			Y1--;
-			sc.reset();
 
-		} while (!adjacentFree(Y1, X1));
+		} while ((X1<=0 || X1>=9 ||Y1<0 || Y1>=9)||(!adjacentFree(Y1, X1)));
 
 		extractedTiles.add(grid[Y1][X1]);
 		
@@ -248,22 +260,37 @@ public class Table {
 		if (maxItems >= 2) {
 			System.out.println("desideri continuare? (true = si, false = no)");
 			sc.reset();
-			boolean continua = sc.nextBoolean();
+			boolean continua;
+			try {
+				continua = sc.nextBoolean();
+			} catch (Error e) {
+				continua=false;
+			}
 			if (continua) {
 				do {
 					sc.reset();
 					System.out.print("inserire coordinate del secondo elemento da pescare dalla board (scrivi 0 per bloccare):\n X ");
 					// x
-					X2 = sc.nextInt();
-					X2--;
-					sc.reset();
+					
+					try {
+						X2 = sc.nextInt();
+						X2--;
+						sc.reset();
+						
+					} catch (Error e) {
+						X2=-1;
+					}
 					
 					// y
-					System.out.print(" Y ");
-					
-					Y2 = sc.nextInt();
-					Y2--;
-					sc.reset();
+					try {
+						System.out.print(" Y ");
+						
+						Y2 = sc.nextInt();
+						Y2--;
+						sc.reset();
+					} catch (Exception e) {
+						Y2=-1;
+					}
 					
 					
 
@@ -276,7 +303,13 @@ public class Table {
 					if (maxItems >= 3) {
 						System.out.println("desideri prendere anche il terzo elemento? (true = si, false = no)");
 						sc.reset();
-						boolean scelta=sc.nextBoolean();
+						boolean scelta;
+						try {
+							scelta=sc.nextBoolean();
+						} catch (Error e) {
+							scelta=false;
+						}
+						
 						if(scelta) {
 							if (Y2 > Y1 && adjacentFree(Y2 + 1, X2)) {
 								// right

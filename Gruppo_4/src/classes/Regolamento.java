@@ -66,6 +66,7 @@ public class Regolamento {
 				         + "4-  BIANCO ,\r\n"
 				         + "5-  VIOLA  ,\r\n"
 				         + "6-  AZZURRO;");
+		
 	}
 	
 	/**

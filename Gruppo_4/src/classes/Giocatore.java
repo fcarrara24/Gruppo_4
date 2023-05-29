@@ -10,6 +10,7 @@ public class Giocatore {
     public ObiettivoPersonale obiettivoPersonale;
     public Shelf shelf;
     public Punti puntiGiocatore;
+    public boolean flagObiettivoComune;
 
     public Giocatore(int ID, int numeroObiettivoPersonale) {
         Scanner sc = new Scanner(System.in);
@@ -20,5 +21,6 @@ public class Giocatore {
         this.obiettivoPersonale = new ObiettivoPersonale(numeroObiettivoPersonale);
         this.shelf = new Shelf();
         this.puntiGiocatore = new Punti();
+        this.flagObiettivoComune=true;
     }
 }
