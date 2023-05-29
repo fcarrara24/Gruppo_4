@@ -75,11 +75,14 @@ public class Shelf {
 	 */
 	
 	public void insertTile(int column, int tile) {
-		for (int i=0; i<4; i++) {
+		
+		for (int i=0; i<5; i++) {
 			if (this.matrix[i+1][column]!=0) {
 				this.matrix[i][column]=tile;
-			}
+				return;
+			} 
 		}
+		this.matrix[5][column]=tile;
 	}
 	
 	

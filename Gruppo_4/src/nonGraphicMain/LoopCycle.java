@@ -79,6 +79,7 @@ public class LoopCycle {
 			this.flagObComuniAttivi=false;
 		}
 		
+		
 		/**
 		 * condizione di fine gioco  con aggiunta di un punto
 		 */
