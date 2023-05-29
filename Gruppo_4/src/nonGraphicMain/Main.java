@@ -20,6 +20,9 @@ public class Main {
 	public static void main(String[] args) {
 		int numeroGiocatori=0;
 		
+		Regolamento regole= new Regolamento();
+		regole.scegliRegola();
+		
 		ArrayList<Integer> obiettivoPersonaleLista= new ArrayList<Integer>();
 		ObiettivoComune obiettivoComune=new ObiettivoComune();
 		System.out.println("obiettivo comune numero "+obiettivoComune.numeroObiettivo);
@@ -42,9 +45,15 @@ public class Main {
 			Random rand= new Random();
 			int numeroObiettivo=rand.nextInt(obiettivoPersonaleLista.size());
 			Giocatore giocatore=new Giocatore(num, numeroObiettivo);
-
 			obiettivoPersonaleLista.remove(numeroObiettivo);
 			arrayGiocatori.add(giocatore);
+			System.out.println(" il giocatore "+giocatore.nome+" ha l'obiettivo personale numero "+giocatore.obiettivoPersonale.numero);
+			System.out.println(" scrivere -true- per vedere il pattern degli obiettivi personali, -false- per saltarlo: ");
+			sc.reset();
+			boolean visualizza=sc.nextBoolean();
+			if (visualizza) {
+				regole.listaObPersonali();
+			}
 		}
 		
 		/**
