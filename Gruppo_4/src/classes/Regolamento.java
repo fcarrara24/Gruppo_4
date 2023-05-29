@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Regolamento {
 	
+	
+	/**
+	 * scegliere una regola in generale
+	 */
 	public void scegliRegola() {
 		System.out.println("sei nella sezione del regolamento del gioco: selezionare uno dei seguenti indici per le istruzioni");
 		System.out.println(" 1-regole generali del gioco \n 2-corrisopndenza tra numero e tassello "
@@ -33,7 +37,9 @@ public class Regolamento {
 		}
 	}
 	
-	
+	/**
+	 * regole generali del gioco
+	 */
 	public void regoleGenerali() {
 		System.out.println("benvenuto nel gioco di MyShelfie,ad ogni turno bisogna \\n\r\n"
 				+ " riempire una colonna della propria libreria prendendo dei \\n \r\n"
@@ -45,20 +51,26 @@ public class Regolamento {
 				+ "l'obiettivo è fare il punteggio più alto tra i giocatori, tenendo conto che vengono  \\n\r\n"
 				+ "assegnati punti in base all'ordine di completamento dell'obiettivo comune, al numero \\n\r\n"
 				+ "al numero di tasselli occupati per ogni obiettivo personale, al numero di tiles adia \\n\r\n"
-				+ "_acenti e dall'essere il primo giocatore a riempire la grid;");
+				+ "_acenti e dall'essere il primo giocatore a riempire la grid \n\n");
 	}
 	
+	/**
+	 * corrisopndenza tra numeri e colori
+	 */
 	public void numeroAColore() {
 		System.out.println("il gioco originale assegna per ciascuno dei seguenti numeri il colore: ");
 		System.out.println("0-  vuoto  ,\r\n"
 				         + "1-  BLU    ,\r\n"
-				         + "2-	VERDE  ,\r\n"
-				         + "3-	GIALLO ,\r\n"
+				         + "2-  VERDE  ,\r\n"
+				         + "3-  GIALLO ,\r\n"
 				         + "4-  BIANCO ,\r\n"
-				         + "5-	VIOLA  ,\r\n"
+				         + "5-  VIOLA  ,\r\n"
 				         + "6-  AZZURRO;");
 	}
 	
+	/**
+	 * lista ob comuni 
+	 */
 	public void listaObComuni() {
 		System.out.println("viene assegnato un punteggio in base all'ordine di competamento degli obiettivi comuni");
 		System.out.println("    2 giocatori: 1° - 8 punti;  2° - 4 punti");
@@ -67,10 +79,17 @@ public class Regolamento {
 		
 		// completare
 	}
+	
+	/**
+	 * lista obiettivi personali
+	 */
 	public void listaObPersonali() {
 		//completare mettendo le griglie coi colori in numeri
 	}
 	
+	/**
+	 * regola dei tiles adiacenti
+	 */
 	public void puntiTilesAdiacenti() {
 		System.out.println("a fine gioco, in base ai raggruppamenti (non vuoti) adiacenti dello stesso colore \n"
 						 + "riceverai i seguenti punti: 3 tiles- 2 punti; 4 tiles- 3 punti; 5 tiles- 5 punti  \n"

@@ -3,19 +3,19 @@ package classes;
 import java.util.ArrayList;
 
 public class OrdineObComune {
-	public ArrayList<Integer> numeroGiocatore;
+	public ArrayList<Integer> numeroGiocatore=new ArrayList<Integer>();;
 	public int numeroTotaleGiocatori;
 	
 	
 	public OrdineObComune(int numeroTotaleGiocatori){
 		this.numeroTotaleGiocatori=numeroTotaleGiocatori;
-		ArrayList<Integer> numeroGiocatore=new ArrayList<Integer>();
+		//ArrayList<Integer> numeroGiocatore;
 	}
 	
 	public int punteggioCorrispondente(int IDgiocatore){
 		switch(numeroTotaleGiocatori){
 		case 2:
-			if(numeroGiocatore==null) {
+			if(numeroGiocatore.isEmpty()) {
 				this.numeroGiocatore.add(IDgiocatore);
 				return 8;
 			} else if(numeroGiocatore.size()==1) {
@@ -24,7 +24,7 @@ public class OrdineObComune {
 			}
 			
 		case 3:
-			if(numeroGiocatore==null) {
+			if(numeroGiocatore.isEmpty()) {
 				this.numeroGiocatore.add(IDgiocatore);
 				return 8;
 			} else if(numeroGiocatore.size()==1) {
@@ -36,7 +36,7 @@ public class OrdineObComune {
 			}
 		
 		case 4:
-			if(numeroGiocatore==null) {
+			if(numeroGiocatore.isEmpty()) {
 				this.numeroGiocatore.add(IDgiocatore);
 				return 8;
 			} else if(numeroGiocatore.size()==1) {

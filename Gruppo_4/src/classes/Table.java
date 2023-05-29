@@ -240,7 +240,7 @@ public class Table {
 		} while (!adjacentFree(Y1, X1));
 
 		extractedTiles.add(grid[Y1][X1]);
-		this.grid[Y1][X1] = 0;
+		
 
 		int Y2 = 0;
 		int X2 = 0;
@@ -271,32 +271,37 @@ public class Table {
 				
 				if(X2!=-1 && Y2!=-1) {
 					extractedTiles.add(grid[Y2][X2]);
-					this.grid[Y2][X2] = 0;
+					
 
 					if (maxItems >= 3) {
-						System.out.println("desideri continuare? (true = si, false = no)");
+						System.out.println("desideri prendere anche il terzo elemento? (true = si, false = no)");
 						sc.reset();
-						if (Y2 > Y1 && adjacentFree(Y2 + 1, X2)) {
-							// right
-							extractedTiles.add(grid[Y2 + 1][X2]);
-							this.grid[Y2 + 1][X2] = 0;
-						} else if (Y1 > Y2 && adjacentFree(Y2 - 1, X2)) {
-							// left
-							extractedTiles.add(grid[Y2 - 1][X2]);
-							this.grid[Y2 - 1][X2] = 0;
-						} else if (X2 > X1 && adjacentFree(Y2, X2 + 1)) {
-							// down
-							extractedTiles.add(grid[Y2][X2 + 1]);
-							this.grid[Y2][X2 + 1] = 0;
-						} else if (X1 > X2 && adjacentFree(Y2, X2 - 1)) {
-							// up
-							extractedTiles.add(grid[Y2][X2 - 1]);
-							this.grid[Y2][X2 - 1] = 0;
+						boolean scelta=sc.nextBoolean();
+						if(scelta) {
+							if (Y2 > Y1 && adjacentFree(Y2 + 1, X2)) {
+								// right
+								extractedTiles.add(grid[Y2 + 1][X2]);
+								this.grid[Y2 + 1][X2] = 0;
+							} else if (Y1 > Y2 && adjacentFree(Y2 - 1, X2)) {
+								// left
+								extractedTiles.add(grid[Y2 - 1][X2]);
+								this.grid[Y2 - 1][X2] = 0;
+							} else if (X2 > X1 && adjacentFree(Y2, X2 + 1)) {
+								// down
+								extractedTiles.add(grid[Y2][X2 + 1]);
+								this.grid[Y2][X2 + 1] = 0;
+							} else if (X1 > X2 && adjacentFree(Y2, X2 - 1)) {
+								// up
+								extractedTiles.add(grid[Y2][X2 - 1]);
+								this.grid[Y2][X2 - 1] = 0;
+							}
 						}
 					}
+					this.grid[Y2][X2] = 0;
 				}
 			}
 		}
+		this.grid[Y1][X1] = 0;
 		
 		return extractedTiles;
 	}

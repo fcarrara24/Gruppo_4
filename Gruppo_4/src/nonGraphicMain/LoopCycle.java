@@ -30,6 +30,7 @@ public class LoopCycle {
 		while(Funzione());
 	}
 	
+	
 	boolean Funzione() {
 		Scanner sc=new Scanner(System.in);
 		sc.reset();
@@ -45,25 +46,35 @@ public class LoopCycle {
 		}
 		
 		System.out.println(giocatoreAttuale.nome+", il tuo obiettivo personale è il numero "+giocatoreAttuale.obiettivoPersonale.numero
-						   +" scrivere -true- per vedere il regolamento, -false- per saltarlo");
+						   +"\nscrivere -true- per vedere il regolamento, -false- per saltarlo");
 		boolean scelta=sc.nextBoolean();
 		if(scelta) {
 			regolamento.listaObPersonali();
 		}
 		System.out.println("\n"+giocatoreAttuale.nome+", seleziona la colonna della tua libreria dove mettere gli elementi tra le seguenti ");
 		
+		//funzione per selezionare la colonna, in base a questa si capisce quanti obiettivi personali fare
 		int colonnaLibreria=this.giocatoreAttuale.shelf.selezioneColonna();
+		
+		//prendo la variabile delle colonne massime da usare nelle prossime funzioni
 		int maxColonne=this.giocatoreAttuale.shelf.getMax(colonnaLibreria);
 		System.out.println("potrai pescare al massimo "+maxColonne+" elementi");
+		
+		//creata una mano dal quale estrarre i colori
 		ArrayList<Integer> mano=this.tavolo.getColors(maxColonne);
+		
+		//funzione per inserire ordinatamente tutti gli elementi della funzione
 		ArrayList<Integer> elementiOrdinati=this.giocatoreAttuale.shelf.chooseOrder(mano);
 		for(int i=0; i<elementiOrdinati.size(); i++) {
 			this.giocatoreAttuale.shelf.insertTile(colonnaLibreria, elementiOrdinati.get(i));
 		}
 		
+		//stampa della griglia generale
+		this.giocatoreAttuale.shelf.printShelf();
+		
+		
 		if(flagObComuniAttivi && 
-		   this.giocatoreAttuale.puntiGiocatore.obiettivoComuneSvolto(numObComune,  
-											   this.giocatoreAttuale.shelf.matrix)) {
+		   this.giocatoreAttuale.puntiGiocatore.obiettivoComuneSvolto(numObComune, this.giocatoreAttuale.shelf.matrix)) {
 			this.giocatoreAttuale.puntiGiocatore.punteggio+=this.ordineObComune.punteggioCorrispondente(this.giocatoreAttuale.ID);
 			this.flagObComuniAttivi=false;
 		}

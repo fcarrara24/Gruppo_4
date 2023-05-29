@@ -75,7 +75,7 @@ public class Shelf {
 	 */
 	
 	public void insertTile(int column, int tile) {
-		for (int i=0; i<5; i++) {
+		for (int i=0; i<4; i++) {
 			if (this.matrix[i+1][column]!=0) {
 				this.matrix[i][column]=tile;
 			}
@@ -84,22 +84,21 @@ public class Shelf {
 	
 	
 	public ArrayList<Integer> chooseOrder(ArrayList<Integer> mano) {
-		System.out.println("scrivere la posizione del primo elemento "
-				+ "da prendere (da 0 a "+(mano.size()-1)+")");
-		System.out.println("elementi (posizione, colore): ");
-		for(int i=0; i<mano.size(); i++) {
-			System.out.print("(posizione "+i+", colore "+mano.get(i)+"); ");
-		}
 		ArrayList<Integer> ordinati= new ArrayList<Integer>();
 
 		Scanner scan= new Scanner(System.in);
 		
 		do {
+			System.out.println("scrivere la posizione del primo elemento "
+					+ "da prendere (da 0 a "+(mano.size()-1)+")");
+			System.out.println("elementi (posizione, colore): ");
 			
+			for(int i=0; i<mano.size(); i++) {
+				System.out.print("(posizione "+i+", colore "+mano.get(i)+"); ");
+			}
 			int posizione=scan.nextInt();
 			scan.reset();
 			if(posizione>=0 && posizione<mano.size()) {
-				System.out.println("removing");
 				ordinati.add(mano.get(posizione));
 				mano.remove(posizione);
 			} else {
@@ -118,7 +117,7 @@ public class Shelf {
 			}
 			System.out.println();
 		}
-		System.out.println("   1 2 3 4 5");
+		System.out.println("   0 1 2 3 4");
 	}
 	
 }

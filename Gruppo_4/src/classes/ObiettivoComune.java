@@ -186,8 +186,8 @@ public class ObiettivoComune {
 	boolean ObiettivoComune6(int[][] libreria) {
 		int contatore = 0; // inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
 		int coloriUguali;
-		for (int i = 0; i < 5; i++) { // facciamo scorrere le colonne
-			for (int numRighe = 0; numRighe < 6; numRighe++) { // facciamo scorrere le righe
+		for (int i = 0; i < 4; i++) { // facciamo scorrere le colonne
+			for (int numRighe = 0; numRighe < 5; numRighe++) { // facciamo scorrere le righe
 				coloriUguali = 0;
 				for (int colori = 1; colori < 6; colori++) { // vediamo se ci sono colori uguali
 					if (libreria[i][numRighe] == colori) {
