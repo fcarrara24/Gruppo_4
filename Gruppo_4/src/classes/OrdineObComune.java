@@ -15,7 +15,7 @@ public class OrdineObComune {
 	public int punteggioCorrispondente(int IDgiocatore){
 		switch(numeroTotaleGiocatori){
 		case 2:
-			if(numeroGiocatore.size()==0) {
+			if(numeroGiocatore==null) {
 				this.numeroGiocatore.add(IDgiocatore);
 				return 8;
 			} else if(numeroGiocatore.size()==1) {
@@ -24,7 +24,7 @@ public class OrdineObComune {
 			}
 			
 		case 3:
-			if(numeroGiocatore.size()==0) {
+			if(numeroGiocatore==null) {
 				this.numeroGiocatore.add(IDgiocatore);
 				return 8;
 			} else if(numeroGiocatore.size()==1) {
@@ -36,7 +36,7 @@ public class OrdineObComune {
 			}
 		
 		case 4:
-			if(numeroGiocatore.size()==0) {
+			if(numeroGiocatore==null) {
 				this.numeroGiocatore.add(IDgiocatore);
 				return 8;
 			} else if(numeroGiocatore.size()==1) {

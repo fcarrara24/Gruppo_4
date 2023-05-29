@@ -1,12 +1,14 @@
 package classes;
 
 import java.util.ArrayList;
+
 import java.util.Random;
 
 public class ObiettivoComune {
 	
 	public int numeroObiettivo;
 	/**
+	 * 
 	 * selector obiettivo comune
 	 */
 	
@@ -118,42 +120,12 @@ public class ObiettivoComune {
 		int contatore = 0;
 		// righe 6
 		// colonne 5
-		for (int i = 0; i < 6; i++) {// scorrimento righe
-			for (int j = 0; j < 5; j++) { // scorrimento colonne
-				if (neiConfini(i + 1, j) & libreria[i][j] == libreria[i + 1][j]) { // controllo sotto se c'è lo stesso
-																					// colore
-
-					// controllo che i lati adiacenti ai gruppi da 2 siano diversi dal colore
-					// trovato
-					if ((!neiConfini(i, j + 1) | libreria[i][j] != libreria[i][j + 1]) && // controllo destra
-							(!neiConfini(i, j - 1) | libreria[i][j] != libreria[i][j - 1]) && // controllo sinistra
-							(!neiConfini(i + 1, j - 1) | libreria[i][j] != libreria[i + 1][j - 1]) && // controllo
-																										// elemento
-																										// sotto a
-																										// sinistra
-							(!neiConfini(i + 1, j + 1) | libreria[i][j] != libreria[i + 1][j + 1]) && // controllo
-																										// elemento
-																										// sotto a
-																										// destra
-							(!neiConfini(i - 1, j) | libreria[i][j] != libreria[i - 1][j]) && // controllo elemento
-																								// sopra
-							(!neiConfini(i + 2, j) | libreria[i][j] != libreria[i + 2][j])) {// controllo elemento sotto
-						contatore++;
-					}
-
-				} else if (neiConfini(i, j + 1) & libreria[i][j] == libreria[i][j + 1]) {
-
-					// controllo che i lati adiacenti ai gruppi da 2 siano diversi dal colore
-					// trovato
-					if ((!neiConfini(i + 1, j) | libreria[i][j] != libreria[i + 1][j]) && // sopra primo
-							(!neiConfini(i - 1, j) | libreria[i][j] != libreria[i - 1][j]) && // sotto primo
-							(!neiConfini(i, j + 2) | libreria[i][j] != libreria[i][j + 2]) && // destra
-							(!neiConfini(i, j - 1) | libreria[i][j] != libreria[i][j - 1]) && // sinistra
-							(!neiConfini(i + 1, j + 1) | libreria[i][j] != libreria[i + 1][j + 1]) && // sopra secondo
-							(!neiConfini(i + 1, j - 1) | libreria[i][j] != libreria[i + 1][j - 1])) {// sotto secondo
-						contatore++;
-					}
-				}
+	
+		ricercaTilesAdiacenti ricerca= new ricercaTilesAdiacenti();
+		ArrayList<Integer> lista =ricercaTilesAdiacenti.listaElementiAdiacenti(libreria);
+		for (int i=0; i<lista.size(); i++) {
+			if (lista.get(i)==4) {
+				contatore++;
 			}
 		}
 		if (contatore >= 6) {
@@ -213,10 +185,11 @@ public class ObiettivoComune {
 	 */
 	boolean ObiettivoComune6(int[][] libreria) {
 		int contatore = 0; // inizializzo contatore per vedere quante volte viene eseguito questo obiettivo
+		int coloriUguali;
 		for (int i = 0; i < 5; i++) { // facciamo scorrere le colonne
 			for (int numRighe = 0; numRighe < 6; numRighe++) { // facciamo scorrere le righe
-				int coloriUguali = 0;
-				for (int colori = 1; colori <= 6; colori++) { // vediamo se ci sono colori uguali
+				coloriUguali = 0;
+				for (int colori = 1; colori < 6; colori++) { // vediamo se ci sono colori uguali
 					if (libreria[i][numRighe] == colori) {
 						coloriUguali++;
 					}

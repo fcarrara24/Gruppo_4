@@ -43,11 +43,11 @@ public class ricercaTilesAdiacenti {
 		 * @param libreria
 		 * @return listaGruppiAdiacenti
 		 */
-	    public static List<Integer> listaElementiAdiacenti(int[][] libreria) {
+	    public static ArrayList<Integer> listaElementiAdiacenti(int[][] libreria) {
 	        int rows = libreria.length;
 	        int cols = libreria[0].length;
 	        boolean[][] visti = new boolean[rows][cols];
-	        List<Integer> listaGruppiAdiacenti = new ArrayList<>();
+	        ArrayList<Integer> listaGruppiAdiacenti = new ArrayList<>();
 
 	        for (int i = 0; i < rows; i++) {
 	            for (int j = 0; j < cols; j++) {
