@@ -21,11 +21,10 @@ public class Main {
 		int numeroGiocatori=0;
 		boolean eccezione=false;
 		Regolamento regole= new Regolamento();
-		regole.scegliRegola();
-		
 		ArrayList<Integer> obiettivoPersonaleLista= new ArrayList<Integer>();
 		ObiettivoComune obiettivoComune=new ObiettivoComune();
 		System.out.println("obiettivo comune numero "+obiettivoComune.numeroObiettivo+"\n");
+		regole.scegliRegola(obiettivoComune.numeroObiettivo);
 		for (int i=1; i<=12; i++) {
 			obiettivoPersonaleLista.add(i);
 		}
@@ -59,19 +58,9 @@ public class Main {
 			Giocatore giocatore=new Giocatore(num, numeroObiettivo);
 			obiettivoPersonaleLista.remove(numeroObiettivo);
 			arrayGiocatori.add(giocatore);
-			System.out.println(" il giocatore "+giocatore.nome+" ha l'obiettivo personale numero "+giocatore.obiettivoPersonale.numero);
-			System.out.println(" scrivere -true- per vedere il pattern degli obiettivi personali: ");
-			sc.reset();
-			boolean visualizza;
-			try {
-				visualizza=sc.nextBoolean();
-			} catch (Exception e) {
-				visualizza=false;
-			}
+			System.out.println(" il giocatore "+giocatore.nome+" ha l'obiettivo personale numero "+giocatore.obiettivoPersonale.numero+"\n\n");
+				regole.listaObPersonali(giocatore.obiettivoPersonale.numero);
 			
-			if (visualizza) {
-				regole.listaObPersonali();
-			}
 		}
 		
 		/**

@@ -10,7 +10,6 @@ public class LoopCycle {
 	public ArrayList<Giocatore> giocatori;
 	private int turno;
 	public int numObComune;
-	public boolean flagObComuniAttivi;
 	public OrdineObComune ordineObComune;
 	public Regolamento regolamento= new Regolamento();
 	
@@ -23,21 +22,24 @@ public class LoopCycle {
 		this.turno=turno;
 		this.giocatori=giocatori;
 		this.tavolo=tavolo;
-		this.flagObComuniAttivi=true;
+	
 		
 		
 		this.ordineObComune= new OrdineObComune(giocatori.size());
 		while(Funzione());
 	}
 	
-	
+	/**
+	 * funzione di scorrimento per ciascun giocatore
+	 * @return false nel caso in cui una libreria fosse completata
+	 */
 	boolean Funzione() {
 		Scanner sc=new Scanner(System.in);
 		sc.reset();
 		System.out.println("obiettivo comune numero"+numObComune+"\n");
-		regolamento.listaObComuni();
+		regolamento.listaObComuni(numObComune);
 		
-		System.out.println("tavolo: \n");
+		System.out.println("\n tavolo: \n");
 		tavolo.printGrid();
 		
 		if((turno+1)%giocatori.size()==0) {
@@ -46,19 +48,11 @@ public class LoopCycle {
 			giocatoreAttuale=giocatori.get(((turno+1)%giocatori.size())-1);
 		}
 		
-		System.out.println(giocatoreAttuale.nome+", il tuo obiettivo personale è il numero "+giocatoreAttuale.obiettivoPersonale.numero
-						   +"\nscrivere -true- per vedere il regolamento");
+		System.out.println(giocatoreAttuale.nome+", il tuo obiettivo personale è il numero "+giocatoreAttuale.obiettivoPersonale.numero);
 		
-		boolean scelta;
-		try{
-			scelta=sc.nextBoolean();
-		} catch (Exception e){
-			sc.reset();
-			scelta=false;
-		}
-		if(scelta) {
-			regolamento.listaObPersonali();
-		}
+		
+		regolamento.listaObPersonali(giocatoreAttuale.obiettivoPersonale.numero);
+		
 		System.out.println("\n"+giocatoreAttuale.nome+", seleziona la colonna della tua libreria dove mettere gli elementi tra le seguenti ");
 		
 		//funzione per selezionare la colonna, in base a questa si capisce quanti obiettivi personali fare
@@ -81,10 +75,10 @@ public class LoopCycle {
 		this.giocatoreAttuale.shelf.printShelf();
 		
 		//se gli obiettivi
-		if(flagObComuniAttivi && 
+		if(this.giocatoreAttuale.flagObiettivoComune && 
 		   this.giocatoreAttuale.puntiGiocatore.obiettivoComuneSvolto(numObComune, this.giocatoreAttuale.shelf.matrix)) {
 			this.giocatoreAttuale.puntiGiocatore.punteggio+=this.ordineObComune.punteggioCorrispondente();
-			this.flagObComuniAttivi=false;
+			this.giocatoreAttuale.flagObiettivoComune=false;
 		}
 		
 		

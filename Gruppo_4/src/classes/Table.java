@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Table {
 
-	private static int row = 10; // aggiungo una linea e una colonna finte in modo da gestire i colori
+	private static int row = 9; // aggiungo una linea e una colonna finte in modo da gestire i colori
 									// correttamente
-	private static int column = 10;
+	private static int column = 9;
 
 	public int[][] grid; // la libreria dei valori prendibili
 	private boolean[][] PosizioniPossibili = new boolean[row][column]; // serve per caprire se quaesti spot sono
@@ -126,23 +126,26 @@ public class Table {
 	 * per la nuova griglia è possibile resettare i valori però bisogna svuotare il
 	 * campo
 	 */
-	void checkAndResetTable() {
+	public void checkAndResetTable() {
 
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < row; j++) {
-				if (!(i != 0 || grid[i - 1][j] == 0)) {
-					return;
-				}
-				if (!(j != 0 || grid[i][j - 1] == 0)) {
-					return;
-				}
-				if (!(i != grid.length || grid[i + 1][j] == 0)) {
-					return;
-				}
-				if (!(i != grid[0].length || grid[i][j + 1] == 0)) {
-					return;
-				}
 
+				if(grid[i][j]!=0) {
+					if(i!=8 && grid[i+1][j]!=0) {
+						return;
+					}
+					if(j!=8 && grid[i][j+1]!=0) {
+						return;
+					}
+					if(i!=0 && grid[i-1][j]!=0) {
+						return;
+					}
+					if(j!=0 && grid[i][j-1]!=0) {
+						return;
+					}
+				}
+				
 			}
 
 		}
@@ -156,6 +159,9 @@ public class Table {
 
 		getGeneralTavolo();
 	}
+
+
+
 
 	
 
@@ -222,34 +228,35 @@ public class Table {
 		ArrayList<Integer> extractedTiles = new ArrayList<Integer>();
 		Scanner sc = new Scanner(System.in);
 		do {
-			sc.reset();
+			
 			System.out.print("inserire coordinate del primo elemento da pescare dalla board:\n X ");
 			// x
-			try {
-				sc.nextLine();
-				sc.reset();
-				X1 = sc.nextInt();
-				
-				
-			} catch (Error e) {
-				X1=0;
-			}
-			X1--;
 			
-			try {
-				sc.nextLine();
-				sc.reset();
+				
+				
+				try {
+					sc.reset();
+					X1 = sc.nextInt();
+					
+				} catch (Exception e) {
+					X1=0;
+				}
+				X1--;
+				
+				
 				// y
 				System.out.print(" Y ");
 				
-				Y1 = sc.nextInt();
-				
-			} catch (Error e) {
-				Y1=0;
-			}
+				try {
+					sc.reset();
+					Y1 = sc.nextInt();
+					
+				} catch (Exception e) {
+					Y1=0;
+				}
 			Y1--;
 
-		} while ((X1<=0 || X1>=9 ||Y1<0 || Y1>=9)||(!adjacentFree(Y1, X1)));
+		} while ((X1<0 || X1>=9 ||Y1<0 || Y1>=9)||(!adjacentFree(Y1, X1)));
 
 		extractedTiles.add(grid[Y1][X1]);
 		
@@ -259,16 +266,16 @@ public class Table {
 
 		if (maxItems >= 2) {
 			System.out.println("desideri continuare? (true = si, false = no)");
-			sc.reset();
+			
 			boolean continua;
 			try {
 				continua = sc.nextBoolean();
+				sc.reset();
 			} catch (Error e) {
 				continua=false;
 			}
 			if (continua) {
 				do {
-					sc.reset();
 					System.out.print("inserire coordinate del secondo elemento da pescare dalla board (scrivi 0 per bloccare):\n X ");
 					// x
 					
@@ -279,6 +286,7 @@ public class Table {
 						
 					} catch (Error e) {
 						X2=-1;
+						
 					}
 					
 					// y
@@ -290,6 +298,7 @@ public class Table {
 						sc.reset();
 					} catch (Exception e) {
 						Y2=-1;
+						
 					}
 					
 					

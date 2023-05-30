@@ -19,7 +19,7 @@ public class ObiettivoComune {
 		
 	 }
 	 
-	/*
+	/**
 	 * Obiettivo numero 1
 	 * 
 	 * Due gruppi separati di 4 tessere dello stesso tipo che formano un quadrato
@@ -42,7 +42,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 2
 	 * 
 	 * Due colonne formate ciascuna da 6 diversi tipi di tessere.
@@ -178,7 +178,7 @@ public class ObiettivoComune {
 
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 6
 	 * 
 	 * Due righe formate ciascuna da 5 diversi tipi di tessere.
@@ -208,7 +208,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 7
 	 * 
 	 * Quattro righe formate ciascuna da 5 tessere di uno, due o tre tipi
@@ -245,7 +245,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 8
 	 * 
 	 * Quattro tessere dello stesso tipo ai quattro angoli della Libreria.
@@ -259,7 +259,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 9
 	 * 
 	 * Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di
@@ -283,7 +283,7 @@ public class ObiettivoComune {
 
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 10
 	 * 
 	 * Cinque tessere dello stesso tipo che formano una X.
@@ -305,7 +305,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 11
 	 * 
 	 * Cinque tessere dello stesso tipo che formano una diagonale.
@@ -338,7 +338,7 @@ public class ObiettivoComune {
 		}
 	}
 
-	/*
+	/**
 	 * Obiettivo numero 12
 	 * 
 	 * Cinque colonne di altezza crescente o decrescente: a partire dalla prima
@@ -367,6 +367,7 @@ public class ObiettivoComune {
 		if (contatore != 1) {
 			return false; // non è vera nessuna condizione degli if
 		} else {
+		
 			return true; // è vero almeno uno dei due cicli if
 		}
 

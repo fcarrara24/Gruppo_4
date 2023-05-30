@@ -5,26 +5,19 @@ import java.util.Scanner;
 
 public class Shelf {
 	public int[][] matrix=new int[6][5];
-	//public int[][] matrix= {
-	//		{1,1,1,1,0},
-	//		{1,1,1,1,1},
-	//   	{1,1,1,1,1},
-	//		{1,1,1,1,1},
-	//		{1,1,1,1,1},
-	//		{1,1,1,1,1},
-	//};
+	
 	
 	/**
 	 * costruttore: inizializzo la shelf a 0 e la assegno ad un giocatore
 
 	 */
-	
 	public Shelf (){
 		
 		for(int i=0; i<6; i++)
 			for(int j=0; j<5; j++) {
 			this.matrix[i][j]=0;
 		}
+		
 	}
 	/**
 	 * prendo le colonne possibili da stampare e le salvo x la combobox
